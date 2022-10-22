@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+body .back-to-top {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: inline-block;
+  background-color: white;
+  border: 1px solid rgb(162, 162, 162);
+  border-radius: 5px;
+  padding: 6px;
+  padding-top: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+body .back-to-top img {
+  width: 40px;
+  animation: go2top 1.5s infinite;
+}
+body .back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+body header {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../img/stlaz2.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+body header .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 30px 0;
+  background-color: rgba(255, 255, 255, 0.669);
+  border-bottom: 1px solid #333;
+  transition: top 0.3s;
+}
+body header .navbar ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+body header .navbar ul li {
+  list-style: none;
+}
+body header .navbar ul li a {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  position: relative;
+}
+body header .navbar ul li a:after {
+  bottom: 10;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: black;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+body header .navbar ul li a:hover:after {
+  width: 100%;
+  left: 0;
+}
+body header h1 {
+  font-size: 3rem;
+}
+body main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+body main .home-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.7fr 1fr 1fr;
+}
+body main .home-section .heading {
+  grid-column: 1/3;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 15px 0;
+}
+body main .home-section h2 {
+  font-size: 1.7rem;
+  text-align: center;
+}
+body main .home-section h3, body main .home-section p {
+  font-size: 1.4rem;
+}
+body main .home-section .home-txt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 30px;
+}
+body main .home-section .home-img {
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main .home-section .home-img img {
+  max-width: 80%;
+}
+body footer {
+  background-color: rgb(226, 226, 226);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 15px;
+}
+body footer .footer-txt {
+  margin-left: 100px;
+}
+body footer .footer-img p {
+  padding-bottom: 10px;
+}
+
+@keyframes go2top {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+  0% {
+    transform: translateY(0);
+  }
+}
+
+/*# sourceMappingURL=build.css.map */

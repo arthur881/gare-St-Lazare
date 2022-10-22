@@ -1,0 +1,169 @@
+@use "mixin";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    scroll-behavior: smooth;
+
+    .back-to-top {
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        display: inline-block;
+        background-color: white;
+        border: 1px solid rgb(162, 162, 162);
+        border-radius: 5px;
+        padding: 6px;
+        padding-top: 4px;
+        cursor: pointer;
+        transition: opacity 0.3s;
+        opacity: 0;
+        pointer-events: none;
+
+        img{
+            width: 40px;
+            animation: go2top 1.5s infinite;
+        }
+    }
+    .back-to-top.visible{
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 30px 0;
+        background-color: white;
+        border-bottom: 1px solid #333;
+        transition: top 0.3s;
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+
+            li {
+                list-style: none;
+
+                a {
+                    font-size: 1.6rem;
+                    text-decoration: none;
+                    color: black;
+                    font-weight: 500;
+                    position: relative;
+                }
+                a:after {    
+                    bottom: 10;
+                    content: "";
+                    display: block;
+                    height: 2px;
+                    left: 50%;
+                    position: absolute;
+                    background: black;
+                    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                    width: 0;
+                }
+                a:hover:after { 
+                    width: 100%; 
+                    left: 0; 
+                }
+            }
+        }
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 0.3fr 1.7fr; 
+        grid-template-rows: 1fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr;
+        padding-top: 80px;
+        h2 {
+            font-size: 1.7rem;
+            padding: 10px;
+        }
+        p {
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+        aside {
+            position: fixed;
+            grid-column: 1 / 2;
+            grid-row: 1 / 10;
+            @include mixin.flexcenter(column, 20px);
+            align-items: flex-start;
+            height: 90vh;
+            margin: 0 4rem;
+
+            a {
+                color: black;
+                text-decoration: none;
+                font-size: 1.4rem;
+            }
+            a:hover {
+                font-weight: bold;
+            }
+        }
+        .row1 {
+            grid-column: 2 / 3;
+            border-left: 1px solid #333;
+            padding: 50px;
+            h1 {
+                text-align: center;
+                font-size: 1.5em;
+                padding-bottom: 10px;
+            }
+            .photo-front {
+                display: flex;
+                @include mixin.flexcenter;
+                
+                p {
+                    font-size: 1.2rem;
+                    padding: 10px;
+                }
+            }
+            img{
+                width: 400px;
+            }
+        }
+        .right-col {
+            grid-column: 2 / 3;
+            border-left: 1px solid #333;
+            padding: 50px;
+            height: 200px;
+        }
+        .height-sup {
+            height: 300px;
+        }
+    }
+
+    footer {
+        background-color: rgb(226, 226, 226);
+        @include mixin.flexcenter(null, 50px);
+        padding: 15px;
+        .footer-txt {
+            margin-left: 100px;
+        }
+        .footer-img {
+            p{
+                padding-bottom: 10px;
+            }
+        }
+    }
+}
+@keyframes go2top {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(4px);
+    }
+    0% {
+        transform: translateY(0);
+    }
+}
